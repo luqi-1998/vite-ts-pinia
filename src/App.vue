@@ -3,14 +3,21 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import {GlobalStore} from '@/store'
 import HelloWorld from './components/HelloWorld.vue'
-let arr:[]=[]
-console.log(arr)
+import Axios from "axios";
+import {ref} from "vue";
+// import HTTP from './utils/fetch'
+const url=ref()
 const global = GlobalStore()
+Axios.get('/api/download',{responseType:'blob'}).then(res=>{
+  console.log(res)
+  url.value=window.URL.createObjectURL(res.data)
+})
+console.log(global)
 </script>
 <template>
   <el-button>点击</el-button>
-  <img alt="Vue logo" src="./assets/logo.png"/>
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite"/>
+  <iframe class="prism-player" :src="url" width="100%" height="1000px%"></iframe>
+
 </template>
 
 <style scoped lang="less">
