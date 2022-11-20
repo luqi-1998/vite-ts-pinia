@@ -12,12 +12,14 @@ Axios.get('/api/download',{responseType:'blob'}).then(res=>{
   console.log(res)
   url.value=window.URL.createObjectURL(res.data)
 })
+import upload from './components/upload'
 console.log(global)
 </script>
 <template>
-  <el-button>点击</el-button>
-  <iframe class="prism-player" :src="url" width="100%" height="1000px%"></iframe>
-
+  <router-view></router-view>
+<!--  <el-button>点击</el-button>-->
+<!--  <iframe class="prism-player" :src="url" width="100%" height="1000px%"></iframe>-->
+<!--<upload></upload>-->
 </template>
 
 <style scoped lang="less">

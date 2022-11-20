@@ -7,9 +7,14 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    DargWeeektimeVue3: typeof import('./src/components/darg-weeektime-vue3.vue')['default']
+    DragWeektime: typeof import('./src/components/drag-weektime.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElUpload: typeof import('element-plus/es')['ElUpload']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Times: typeof import('./src/components/drag-weektime.vue')['default']
+    Upload: typeof import('./src/components/upload.vue')['default']
   }
 }

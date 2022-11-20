@@ -1,7 +1,8 @@
 import {createRouter, createWebHistory, RouteRecordRaw} from 'vue-router'
 
 const HelloWorld = () => import('@/components/HelloWorld.vue')
-
+// @ts-ignore
+const Home=()=>import('../page/Home')
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/',
@@ -10,6 +11,10 @@ const routes: Array<RouteRecordRaw> = [
             title: '首页'
         },
         component: HelloWorld
+    },{
+    path:'/home',
+        name:'Home',
+        component:Home
     }
 ]
 const router = createRouter({
