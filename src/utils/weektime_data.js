@@ -31,8 +31,8 @@ const createArr = (len) => {
 
 const formatWeektime = (col) => {
     const timestamp = 1542384000000 // '2018-11-17 00:00:00'
-    const beginstamp = timestamp + col * 1800000 // col * 30 * 60 * 1000
-    const endstamp = beginstamp + 1800000
+    const beginstamp = timestamp + col * 3600000 // col * 30 * 60 * 1000
+    const endstamp = beginstamp + 3600000
 
     const begin = formatDate(new Date(beginstamp), 'hh:mm')
     const end = formatDate(new Date(endstamp), 'hh:mm')

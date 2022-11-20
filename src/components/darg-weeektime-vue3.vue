@@ -10,15 +10,15 @@
       <thead class="c-weektime-head">
       <tr>
         <th rowspan="8" class="week-td">星期/时间</th>
-        <th :colspan="12 * props.colspan">00:00 - 12:00</th>
-        <th :colspan="12 * props.colspan">12:00 - 24:00</th>
+        <th :colspan="24">00:00 - 24:00</th>
+<!--        <th :colspan="12 * props.colspan">12:00 - 24:00</th>-->
       </tr>
       <tr>
-        <td v-for="t in theadArr" :key="t" :colspan="props.colspan">{{ t }}</td>
+        <td v-for="t in state.theadArr" :key="t" :colspan="1">{{ t }}</td>
       </tr>
       </thead>
       <tbody class="c-weektime-body">
-      <tr v-for="t in data" :key="t.row">
+      <tr v-for="t in props.data" :key="t.row">
         <td>{{ t.value }}</td>
         <td
             v-for="n in t.child"
@@ -79,6 +79,7 @@ const props=defineProps({
     }
   }
 })
+console.log(props)
 const state=reactive({
   width: 0,
   height: 0,
@@ -161,7 +162,8 @@ const selectWeek=(row, col, check)=>{
           t.col >= minCol &&
           t.col <= maxCol
       ) {
-        this.$set(t, 'check', check)
+        t.check=check
+        // this.$set(t, 'check', check)
       }
     })
   })
